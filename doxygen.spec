@@ -4,7 +4,7 @@
 #
 Name     : doxygen
 Version  : 1.8.11
-Release  : 1
+Release  : 2
 URL      : http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz
 Source0  : http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz
 Summary  : No detailed summary available
