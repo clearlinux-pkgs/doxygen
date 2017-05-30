@@ -4,9 +4,9 @@
 #
 Name     : doxygen
 Version  : 1.8.11
-Release  : 2
-URL      : http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz
-Source0  : http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz
+Release  : 3
+URL      : ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz
+Source0  : ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 QPL-1.0
@@ -34,19 +34,26 @@ bin components for the doxygen package.
 %setup -q -n doxygen-1.8.11
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+export LANG=C
+export SOURCE_DATE_EPOCH=1496183813
 mkdir clr-build
 pushd clr-build
-cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=%{_libdir}
-make V=1  %{?_smp_mflags}
+cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=%{_libdir} -DCMAKE_AR=/usr/bin/gcc-ar -DLIB_SUFFIX=64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_RANLIB=/usr/bin/gcc-ranlib
+make VERBOSE=1  %{?_smp_mflags}
 popd
 
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd clr-build ; make test ; popd
 
 %install
+export SOURCE_DATE_EPOCH=1496183813
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
