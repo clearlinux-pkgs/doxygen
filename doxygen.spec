@@ -4,7 +4,7 @@
 #
 Name     : doxygen
 Version  : 1.8.13
-Release  : 4
+Release  : 5
 URL      : ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.src.tar.gz
 Source0  : ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.src.tar.gz
 Summary  : No detailed summary available
