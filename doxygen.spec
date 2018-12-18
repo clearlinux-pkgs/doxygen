@@ -4,19 +4,17 @@
 #
 Name     : doxygen
 Version  : 1.8.14
-Release  : 8
-URL      : ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz
-Source0  : ftp://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz
+Release  : 9
+URL      : https://sourceforge.net/projects/doxygen/files/rel-1.8.14/doxygen-1.8.14.src.tar.gz
+Source0  : https://sourceforge.net/projects/doxygen/files/rel-1.8.14/doxygen-1.8.14.src.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 QPL-1.0
-Requires: doxygen-bin
-Requires: doxygen-license
+Requires: doxygen-bin = %{version}-%{release}
+Requires: doxygen-license = %{version}-%{release}
 BuildRequires : bison
 BuildRequires : bison-dev
 BuildRequires : buildreq-cmake
-BuildRequires : cmake(Clang)
-BuildRequires : cmake(LLVM)
 BuildRequires : doxygen
 BuildRequires : flex
 BuildRequires : glibc-dev
@@ -36,7 +34,7 @@ for the full package.
 %package bin
 Summary: bin components for the doxygen package.
 Group: Binaries
-Requires: doxygen-license
+Requires: doxygen-license = %{version}-%{release}
 
 %description bin
 bin components for the doxygen package.
@@ -58,11 +56,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536631570
+export SOURCE_DATE_EPOCH=1545203617
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %check
@@ -73,12 +71,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1536631570
+export SOURCE_DATE_EPOCH=1545203617
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/doxygen
-cp LICENSE %{buildroot}/usr/share/doc/doxygen/LICENSE
-cp qtools/LICENSE.GPL %{buildroot}/usr/share/doc/doxygen/qtools_LICENSE.GPL
-cp qtools/LICENSE.QPL %{buildroot}/usr/share/doc/doxygen/qtools_LICENSE.QPL
+mkdir -p %{buildroot}/usr/share/package-licenses/doxygen
+cp LICENSE %{buildroot}/usr/share/package-licenses/doxygen/LICENSE
+cp qtools/LICENSE.GPL %{buildroot}/usr/share/package-licenses/doxygen/qtools_LICENSE.GPL
+cp qtools/LICENSE.QPL %{buildroot}/usr/share/package-licenses/doxygen/qtools_LICENSE.QPL
 pushd clr-build
 %make_install
 popd
@@ -91,7 +89,7 @@ popd
 /usr/bin/doxygen
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/doxygen/LICENSE
-/usr/share/doc/doxygen/qtools_LICENSE.GPL
-/usr/share/doc/doxygen/qtools_LICENSE.QPL
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/doxygen/LICENSE
+/usr/share/package-licenses/doxygen/qtools_LICENSE.GPL
+/usr/share/package-licenses/doxygen/qtools_LICENSE.QPL
