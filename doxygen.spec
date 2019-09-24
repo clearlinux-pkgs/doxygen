@@ -4,7 +4,7 @@
 #
 Name     : doxygen
 Version  : 1.8.15
-Release  : 10
+Release  : 11
 URL      : https://sourceforge.net/projects/doxygen/files/rel-1.8.15/doxygen-1.8.15.src.tar.gz
 Source0  : https://sourceforge.net/projects/doxygen/files/rel-1.8.15/doxygen-1.8.15.src.tar.gz
 Summary  : No detailed summary available
@@ -20,7 +20,6 @@ BuildRequires : flex
 BuildRequires : glibc-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(sqlite3)
-BuildRequires : python-dev
 BuildRequires : python3
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
@@ -55,23 +54,28 @@ license components for the doxygen package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1546267274
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569350418
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1546267274
+export SOURCE_DATE_EPOCH=1569350418
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/doxygen
 cp LICENSE %{buildroot}/usr/share/package-licenses/doxygen/LICENSE
