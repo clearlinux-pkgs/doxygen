@@ -4,7 +4,7 @@
 #
 Name     : doxygen
 Version  : 1.8.15
-Release  : 11
+Release  : 12
 URL      : https://sourceforge.net/projects/doxygen/files/rel-1.8.15/doxygen-1.8.15.src.tar.gz
 Source0  : https://sourceforge.net/projects/doxygen/files/rel-1.8.15/doxygen-1.8.15.src.tar.gz
 Summary  : No detailed summary available
@@ -18,9 +18,11 @@ BuildRequires : buildreq-cmake
 BuildRequires : doxygen
 BuildRequires : flex
 BuildRequires : glibc-dev
+BuildRequires : llvm-dev
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : python3
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : zlib-dev
 
@@ -49,22 +51,23 @@ license components for the doxygen package.
 
 %prep
 %setup -q -n doxygen-1.8.15
+cd %{_builddir}/doxygen-1.8.15
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569350418
+export SOURCE_DATE_EPOCH=1604365266
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %check
@@ -75,12 +78,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1569350418
+export SOURCE_DATE_EPOCH=1604365266
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/doxygen
-cp LICENSE %{buildroot}/usr/share/package-licenses/doxygen/LICENSE
-cp qtools/LICENSE.GPL %{buildroot}/usr/share/package-licenses/doxygen/qtools_LICENSE.GPL
-cp qtools/LICENSE.QPL %{buildroot}/usr/share/package-licenses/doxygen/qtools_LICENSE.QPL
+cp %{_builddir}/doxygen-1.8.15/LICENSE %{buildroot}/usr/share/package-licenses/doxygen/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/doxygen-1.8.15/qtools/LICENSE.GPL %{buildroot}/usr/share/package-licenses/doxygen/0e8a7a9afa6deae0946518b3666ee29da28dd6c5
+cp %{_builddir}/doxygen-1.8.15/qtools/LICENSE.QPL %{buildroot}/usr/share/package-licenses/doxygen/50dde1b2673055896b2261b36e1f0a1f7609b797
 pushd clr-build
 %make_install
 popd
@@ -94,6 +97,6 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/doxygen/LICENSE
-/usr/share/package-licenses/doxygen/qtools_LICENSE.GPL
-/usr/share/package-licenses/doxygen/qtools_LICENSE.QPL
+/usr/share/package-licenses/doxygen/0e8a7a9afa6deae0946518b3666ee29da28dd6c5
+/usr/share/package-licenses/doxygen/4cc77b90af91e615a64ae04893fdffa7939db84c
+/usr/share/package-licenses/doxygen/50dde1b2673055896b2261b36e1f0a1f7609b797
