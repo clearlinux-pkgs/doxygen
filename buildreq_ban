@@ -1,5 +1,10 @@
 # This file contains build requirements that get picked up but are
 # undesirable. One entry per line, no whitespace.
+buildreq-distutils3
 cmake(Qt4)
 cmake(Xapian)
 cmake(Qt5Core)
+git
+lxml
+six
+xapian-core-dev

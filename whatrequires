@@ -10,17 +10,19 @@ Uranium
 VTK
 Z3
 ade
+atkmm
 avahi
 bind-utils
 blender
+box2d
 bro
+cairomm
 ceph
 clucene-core
 cmake
 cmocka
 coinmp
-compat-icu4c-soname64
-compat-opencv-soname42
+compat-gcc-10
 corosync
 cppunit
 createrepo_c
@@ -30,8 +32,8 @@ dbus
 digikam
 dlt-daemon
 doxygen
+dpdk
 efl
-enlightenment
 exiv2
 extra-cmake-modules
 flac
@@ -45,8 +47,10 @@ geany
 geeqie
 girara
 glfw
+glibmm
 gpgme
 grantlee
+gtkmm3
 gutenprint
 hwloc
 hyperscan
@@ -55,6 +59,7 @@ icu4c
 imagescan
 innoextract
 kbd
+kdsoap
 kronosnet
 lensfun
 libabigail
@@ -86,6 +91,7 @@ librealsense
 libreoffice
 librepo
 librevenge
+libsigc++
 libsmbios
 libssh
 libstaroffice
@@ -102,12 +108,14 @@ libxkbcommon
 libzmf
 lldb
 llvm
+llvm10
 llvm8
 llvm9
 mariadb
 minetest
 mingw-gcc
 mkl-dnn
+mlt
 modsecurity
 msgpack-c
 mxnet
@@ -118,6 +126,7 @@ opus
 opusfile
 paho.mqtt.c
 paho.mqtt.cpp
+pangomm
 pcmanfm-qt
 pmdk
 protobuf-c
@@ -126,6 +135,7 @@ rabbitmq-c
 rpm
 rttr
 ruby
+scene-alembic
 stellarium
 subversion
 supertuxkart
@@ -135,6 +145,7 @@ texlive
 tigervnc
 tpm2-tss
 v4l-utils
+vkd3d
 wayland
 weston
 wireshark
