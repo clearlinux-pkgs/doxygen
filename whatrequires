@@ -1,7 +1,6 @@
 # This file contains recursive sources that require this package
 CGAL
 Coin
-FreeCAD
 ParaView
 QGIS
 SFCGAL
@@ -15,14 +14,16 @@ avahi
 bind-utils
 blender
 box2d
-bro
 cairomm
 ceph
+cereal
 clucene-core
 cmake
 cmocka
 coinmp
 compat-gcc-10
+compat-icu4c-soname67
+compat-tbb-soname12
 corosync
 cppunit
 createrepo_c
@@ -43,7 +44,6 @@ gcc
 gcc7
 gcc8
 gcc9
-geany
 geeqie
 girara
 glfw
@@ -54,16 +54,17 @@ gtkmm3
 gutenprint
 hwloc
 hyperscan
-ias
 icu4c
 imagescan
 innoextract
+json-c
 kbd
 kdsoap
 kronosnet
 lensfun
 libabigail
 libabw
+libaccounts-qt
 libcdr
 libcomps
 libdatrie
@@ -76,6 +77,7 @@ libfm-qt
 libfreehand
 libftdi1
 libgeotiff
+libgphoto2
 libical
 libinput
 libmspub
@@ -106,9 +108,10 @@ libwps
 libxdg-basedir
 libxkbcommon
 libzmf
-lldb
 llvm
 llvm10
+llvm11
+llvm12
 llvm8
 llvm9
 mariadb
@@ -118,7 +121,6 @@ mkl-dnn
 mlt
 modsecurity
 msgpack-c
-mxnet
 open-vm-tools
 opencv
 openjpeg
@@ -131,11 +133,14 @@ pcmanfm-qt
 pmdk
 protobuf-c
 qca-qt5
+qsstv
+qt6base
 rabbitmq-c
 rpm
 rttr
 ruby
 scene-alembic
+signond
 stellarium
 subversion
 supertuxkart
@@ -153,3 +158,4 @@ xcb-util-cursor
 xcb-util-xrm
 xf86-input-wacom
 xorg-server
+zeek
