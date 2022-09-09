@@ -8,3 +8,4 @@ git
 pypi(lxml)
 pypi(six)
 xapian-core-dev
+qt6base-dev

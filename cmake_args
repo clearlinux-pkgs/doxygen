@@ -1,3 +1,2 @@
 -DBUILD_SHARED_LIBS=OFF
--DCMAKE_CTEST_ARGUMENTS="--output-on-failure"
 -DMAN_INSTALL_DIR=/usr/share/man/man1

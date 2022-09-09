@@ -1,6 +1,7 @@
 # This file contains recursive sources that require this package
 CGAL
 Coin
+Imath
 ParaView
 QGIS
 SFCGAL
@@ -23,12 +24,10 @@ cmocka
 coinmp
 compat-gcc-10
 compat-icu4c-soname67
-compat-tbb-soname12
 corosync
 cppunit
 createrepo_c
 darktable
-dav1d
 dbus
 digikam
 dlt-daemon
@@ -41,6 +40,7 @@ flac
 fltk
 fluidsynth
 gcc
+gcc11
 gcc7
 gcc8
 gcc9
@@ -55,6 +55,7 @@ gutenprint
 hwloc
 hyperscan
 icu4c
+igsc
 imagescan
 innoextract
 json-c
@@ -70,6 +71,7 @@ libcomps
 libdatrie
 libdbusmenu-qt
 libe-book
+libeconf
 libepubgen
 libetonyek
 libevdev
@@ -80,6 +82,7 @@ libgeotiff
 libgphoto2
 libical
 libinput
+libmnl
 libmspub
 libmwaw
 libnl
@@ -109,12 +112,11 @@ libxdg-basedir
 libxkbcommon
 libzmf
 llvm
-llvm10
 llvm11
 llvm12
-llvm8
-llvm9
+llvm13
 mariadb
+metee
 minetest
 mingw-gcc
 mkl-dnn
@@ -123,6 +125,7 @@ modsecurity
 msgpack-c
 open-vm-tools
 opencv
+openexr
 openjpeg
 opus
 opusfile
@@ -153,6 +156,7 @@ v4l-utils
 vkd3d
 wayland
 weston
+wireplumber
 wireshark
 xcb-util-cursor
 xcb-util-xrm
