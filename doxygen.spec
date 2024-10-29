@@ -7,7 +7,7 @@
 #
 Name     : doxygen
 Version  : 1.9.8
-Release  : 16
+Release  : 17
 URL      : https://sourceforge.net/projects/doxygen/files/rel-1.9.8/doxygen-1.9.8.src.tar.gz
 Source0  : https://sourceforge.net/projects/doxygen/files/rel-1.9.8/doxygen-1.9.8.src.tar.gz
 Summary  : Tool for generating documentation from annotated source code
